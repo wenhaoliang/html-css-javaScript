@@ -1,0 +1,30 @@
+﻿<html>
+<head>
+<style type = "text/css">
+p {white-space: pre;}
+h1 {white-space: nowrap;}
+h2 {white-space: pre-wrap;}
+h3 {white-space: pre-line;}
+</style>
+</head>
+
+
+
+<body>
+
+<p> 这  是一  
+ 个段  落 </p>
+<h1>This     paragraph has    many
+    spaces           in it.</h1>
+<h2>This     paragraph has    a  great    many  s p a c e s   with
+its textual  content, but their    preservation     will  not prevent
+line   wrapping or line breaking.</h2>
+
+<p>注释：当 white-space 属性设置为 pre-wrap 时，浏览器不仅会保留空白符并保留换行符，还允许自动换行。</p>
+<h3>This     paragraph has    a  great    many  s p a c e s   with
+its textual  content, but their    collapse     will  not prevent
+line   wrapping or line breaking.</h3>
+
+<p>注释：当 white-space 属性设置为 pre-line 时，浏览器会保留换行符，并允许自动换行，但是会合并空白符，这是与 pre-wrap 值的不同之处。</p>
+ </body>
+</html>
