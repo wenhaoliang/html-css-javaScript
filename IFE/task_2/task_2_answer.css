@@ -4,16 +4,16 @@ big, cite, code, del, dfn, em, img, ins, kbd, q,  samp,
 small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend, table, caption, tbody, tfoot,
 thead, tr, th, td {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
+    margin: 0; 
+    padding: 0; 
+    border: 0; 
+    outline: 0; 
     font-weight: inherit;
-    font-style: inherit;
-    font-size: 100%;
-    font-family: inherit;
-    vertical-align: baseline;
-}
+    font-style: inherit; 
+    font-size: 100%; 
+    font-family: inherit; 
+    vertical-align: baseline; 
+} 
 
 #header{
 
@@ -156,7 +156,7 @@ div#sidebar{
 	background-color:  #FFFFFF;
 }
 div#sidebar div.sidebar-content{
-
+	
 	background: white;
 	padding: 20px;
 }
@@ -194,7 +194,7 @@ div#sidebar div.inp input[type="submit"]{
 	font-weight: bold;
 }
 div#sidebar div.tip{
-
+	
 	/*margin: 20px;*/
 	height: 25px;
 	text-align: center;
