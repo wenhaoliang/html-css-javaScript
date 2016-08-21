@@ -35,15 +35,18 @@
         th{background: #333; color: #fff; text-align: left}
         tr:last-child{background: #ccc; font-weight: bold}
         /*侧边栏*/
-        aside{box-sizing:border-box; padding: 20px; margin-top: 20px; background-color: #fff; box-shadow: 2px 2px 2px #aaa; margin-bottom: 20px;}
+        aside{box-sizing:border-box; padding: 20px; margin-top: 20px; background-color: #fff;
+            box-shadow: 2px 2px 2px #aaa; margin-bottom: 20px;}
         aside h1{border-left: 3px #ccc solid; line-height: 2em; padding-left: 10px; margin: 0;}
         aside input, aside textarea{border: 1px #999 solid; outline: none; }
         aside input{padding: 3px}
         aside form > div{margin: 10px 0}
-        aside .input-title{width: 30%; display: inline-block; vertical-align: top; text-align: right; margin-right: 10px;}
+        aside .input-title{width: 30%; display: inline-block; vertical-align: top;
+            text-align: right; margin-right: 10px;}
         aside .input-tip{margin-left: 30%; padding-left: 10px;}
         aside textarea{height: 50px; width: 400px; }
-        aside button{background: rgb(28, 99, 221); line-height: 3em; border-radius: 5px; border: 0; outline: none; color: #fff; width: 100%;}
+        aside button{background: rgb(28, 99, 221); line-height: 3em; border-radius: 5px
+            border: 0; outline: none; color: #fff; width: 100%;}
     </style>
 </head>
 <body>
@@ -180,25 +183,47 @@
         <h1>这里以后是个侧栏，这是侧栏的标题</h1>
 
         <form action="" method="post">
-            <div><div class="input-title">请输入邮箱地址: </div><input type="email" name="email" placeholder="这是一个文本输入框"/></div>
+            <div><div class="input-title">请输入邮箱地址: </div>
+                <input type="email" name="email" placeholder="这是一个文本输入框"/>
+            </div>
             <div class="input-tip">邮箱地址请按照要求格式输入 </div>
-            <div><div class="input-title">请输入密码:</div><input type="password" name="password" placeholder="这是一个文本输入框"/> </div></div>
-            <div><div class="input-title">请重复输入密码:</div><input type="password" name="repassword" placeholder="这是一个文本输入框"/> </div>
+            <div>
+                <div class="input-title">请输入密码:</div>
+                <input type="password" name="password" placeholder="这是一个文本输入框"/>
+            </div>
+            <div>
+                <div class="input-title">请重复输入密码:</div>
+                <input type="password" name="repassword" placeholder="这是一个文本输入框"/>
+            </div>
             <div class="input-tip">密码为6-16位英文数字</div>
 
-            <div><div class="input-title">性别: </div><label for="gender1"><input type="radio" name="gender" id="gender1" value="nan"/>男</label> <label for="gender2"><input type="radio" name="gender" id="gender2" value="nv"/>女</label></div>
-            <div><div class="input-title">城市: </div><select name="city" >
+            <div>
+                <div class="input-title">性别: </div>
+                <label for="gender1">
+                    <input type="radio" name="gender" id="gender1" value="nan"/>男</label>
+                <label for="gender2">
+                    <input type="radio" name="gender" id="gender2" value="nv"/>女</label>
+            </div>
+            <div>
+                <div class="input-title">城市: </div>
+                <select name="city" >
                     <option value="beijing">北京</option>
                     <option value="shanghai">上海</option>
                     <option value="dalian">大连</option>
                 </select>
             </div>
 
-            <div><div class="input-title">爱好:</div><label for="aihao1"><input type="checkbox" name="aihao[]" id="aihao1" value="sport"/>运动</label>
+            <div>
+                <div class="input-title">爱好:</div>
+                    <label for="aihao1"><input type="checkbox" name="aihao[]" id="aihao1" value="sport"/>运动</label>
                     <label for="aihao2"><input type="checkbox" name="aihao[]" id="aihao2" value="art"/>艺术</label>
-                    <label for="aihao3"><input type="checkbox" name="aihao[]" id="aihao3" value="science"/>科学</label></div>
+                    <label for="aihao3"><input type="checkbox" name="aihao[]" id="aihao3" value="science"/>科学</label>
+            </div>
 
-            <div> <div class="input-title">个人描述: </div><textarea name="describe">这是一个多行输入框，输入您的个人描述</textarea></div>
+            <div>
+                <div class="input-title">个人描述: </div>
+                <textarea name="describe">这是一个多行输入框，输入您的个人描述</textarea>
+            </div>
             <div><button type="submit">确认提交</button></div>
         </form>
 
