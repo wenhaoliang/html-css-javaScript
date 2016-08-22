@@ -1,0 +1,38 @@
+body{
+    margin:0px;
+    padding:0px;
+}
+.main{
+    position: absolute;;
+    background-color:rgb(204, 204, 204);
+    width:400px;
+    height:200px;
+    top: 50%;
+    margin-top: -100px;
+    left: 50%;
+    margin-left: -200px;
+
+}
+.main .left-top-area{
+    left: 0;
+    top: 0;
+    width:50px;
+    height:50px;
+    position: absolute;
+    background-color: rgb(255, 204, 0);
+    border-radius: 0 0 50px 0 ;
+}
+/*border-radius可以同时设置1到4个值。（想想我们之前的margin与padding）*/
+/*如果设置1个值，表示4个圆角都使用这个值。如果设置两个值，表示左上角和右下角使用第一个值，*/
+/*右上角和左下角使用第二个值。如果设置三个值，表示左上角使用第一个值，右上角和左下角使用第*/
+/*二个值，右下角使用第三个值。如果设置四个值，则依次对应左上角、右上角、右下角、左下角（顺时针顺序）*/
+
+.main .right-bottom-area{
+    right: 0;
+    bottom: 0;
+    width:50px;
+    height:50px;
+    position: absolute;
+    background-color: rgb(255, 204, 0);
+    border-radius: 50px 0 0 0 ;
+}

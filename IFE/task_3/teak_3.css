@@ -3,10 +3,10 @@ body{
     padding: 20px;
 }
 .left_logo{
-    border-style:solid;
-    border-width: thin;
+    border: thin solid #999;
     float: left;
     width:200px;
+    background-color: white;
 }
 .left_logo p{
     float: right;
@@ -27,8 +27,9 @@ body{
     margin-right: 140px;
     min-width: 50px;
     padding: 20px;
-    border: 1px solid #999;
+    border: thin solid #999;
     position: relative;
+    background-color: white;
 
 }
 .right_logo{
@@ -44,10 +45,12 @@ body{
     padding: 0;
     box-sizing: border-box;
     width: 120px;
-    border: 1px solid #999;
+    border: thin solid #999;
+    background-color: white;
 }
 .right_logo img{
     width:100px;
     height:100px;
     margin-left:10px;
+    margin-top: 20px;
 }
