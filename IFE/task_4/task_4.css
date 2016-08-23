@@ -1,220 +1,28 @@
-body{
-    /*margin: 0;!*设置元素的4个外边距*!*/
-    color: #333;;
-    background: #eee;
-    font-size:12px;
-}
-img{
-    max-width:100%;
-}
-
-
-/*global*/
-header{
-    background: #f3bf45;
-    padding: 10px 0;
-    width:100%;
-}
-
-footer{
-    background: #000;
-    color: #fff;
-    text-align: center;
-    line-height: 6em;
-    width:100%;
-}
-.main-nav, .content, aside{
-    width: 1000px;
-    margin: 0 auto
-}
-
-
-
-/*导航条*/
-.main-nav .logo{
-    position: relative;
-    top:-20px;
-    right:70px;
-    width:200px;
-    height:50px;
-    transform: scale(0.3,0.3);
-}
-
-.main-nav{
-    position: relative;
-}
-/*position 可能的值
-absolute
-生成绝对定位的元素，相对于 static 定位以外的第一个父元素进行定位。
-元素的位置通过 "left", "top", "right" 以及 "bottom" 属性进行规定。
-fixed
-生成绝对定位的元素，相对于浏览器窗口进行定位。
-元素的位置通过 "left", "top", "right" 以及 "bottom" 属性进行规定。
-relative
-生成相对定位的元素，相对于其正常位置进行定位。
-因此，"left:20" 会向元素的 LEFT 位置添加 20 像素。
-static	默认值。没有定位，元素出现在正常的流中（忽略 top, bottom, left, right 或者 z-index 声明）。
-inherit	规定应该从父元素继承 position 属性的值。*/
-.nav-links{
-    margin:0;
-    padding:0;
+#rectangle {
     position: absolute;
-    list-style-position: inside;
-    right:0;
-    top:50%;
-    margin-top: -0.6em;
-    font-size:12px;
-}
-/*list-style-positin    设置在何处放置列表项标记
-inside	列表项目标记放置在文本以内，且环绕文本根据标记对齐。
-outside	默认值。保持标记位于文本的左侧。列表项目标记放置在文本以外，且环绕文本不根据标记对齐。
-inherit	规定应该从父元素继承 list-style-position 属性的值。*/
-.nav-links:after{
-    content: '';/*after选择器：在每个元素的内容之后插入新内容*/
-    display: block;/*此元素将显示为块级元素，此元素前后会带有换行符。*/
-    clear: both;/*在左右两侧均不允许浮动元素*/
-}
-.nav-links li{
-    float: left;
-    margin-left: 5px;
-}
-.nav-links a{
-    color: floralwhite;
-    text-decoration: none;
-}
-.nav-links a:visited{
-    color: black;
+    background-color: #ccc;
+    width: 400px;
+    height: 200px;
+    margin: auto;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
 }
 
-
-
-/*文章区*/
-.main{
-    margin-right:400px;
-}
-article{
-    padding:20px;
-    margin-top: 20px;
-    background-color: #ffffff;
-    box-shadow: 2px 2px 2px #aaa;/*设置阴影，第一个设置向右偏移，第二个向下偏移，第三个设置向右下偏移，第四个颜色*/
-}
-article h1{
-    font-size:1.5em;
-}
-article h2{
-    font-size:1.3em;
-    color: #777;
-}
-article .author, article .addtime{
-    color:#999
-}
-article p{
-    text-indent:2em;
-    font-size:14px;
+.quarter {
+    position: absolute;
+    background-color: #fc0;
+    width: 50px;
+    height: 50px;
 }
 
-/*图片列表*/
-.pic-list{
-    list-style: none;
-}
-.pic-list li{
-    width:120px;
-    border:1px #ccc solid;/*solid添加边框*/
-    box-sizing: border-box;
-    padding:0 10px 10px 10px;
-    text-align: center;
-    margin-bottom: 20px;
-}
-/*      box-sizing: border-box;
-为元素设定的宽度和高度决定了元素的边框盒。
-就是说，为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制。
-通过从已设定的宽度和高度分别减去边框和内边距才能得到内容的宽度和高度。*/
-.pic-list h1{
-    font-size: 12px;
-    font-weight: normal;
+#leftQuarter {
+    border-bottom-right-radius: 50px;
 }
 
-
-/*表格*/
-table{
-    border:0;
-    width:100%;
-    border-collapse:collapse;/*为表格设置合并边框模型 如果可能，边框会合并为一个单一的边框。会忽略 border-spacing 和 empty-cells 属性。*/
+#rightQuarter {
+    bottom: 0;
+    right: 0;
+    border-top-left-radius: 50px;
 }
-td, th{
-    padding:5px;
-    border:1px #ccc solid;
-}
-th{
-    background: #333;
-    color: #fff;
-    text-align: left;
-}
-tr:last-child{
-    background: #ccc;
-    font-weight: bold;
-}
-
-
-/*侧边栏*/
-aside{
-    float: right;
-    box-sizing:border-box ;
-    padding: 20px;
-    margin-top:20px;
-    background-color: #fff;
-    box-shadow: 2px 2px 2px #aaa;
-    margin-bottom:20px;
-    width:350px;
-}
-aside h1{
-    border-left: 3px #ccc solid;
-    line-height:2em;
-    padding-left:10px;
-    margin:0;
-}
-aside input, aside textarea{
-    border:1px #999 solid;
-    outline:none;
-}
-aside input{
-    padding:3px;
-}
-aside form > div{
-    margin:10px 0;
-}
-aside .input-title{
-    width:30%;
-    display:inline-block;/*设置为行内块元素*/
-    vertical-align:top;/*元素的垂直对齐方式*/
-    text-align: right;
-    margin-right:10px;
-}
-aside .input-tip{
-    margin-left:30%;
-    padding-left:10px;
-}
-aside textarea{
-    height:50px;
-    width: 150px;
-}
-aside button{
-    background: rgb(28, 99, 221);
-    line-height:3em;
-    border-radius:5px;
-    boder:0;
-    outline:none;
-    color: #fff;
-    width:100%;
-}
-
-.footer{
-    clear: both;
-}
-
-
-
-
-
-
-
