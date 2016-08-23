@@ -1,0 +1,15 @@
+body{
+  width:100%;
+  display:flex;
+  display:-webkit-flex;
+  .left{
+    flex:0 0 100px;
+    background:green;
+    height:100px;
+  }
+  .right{
+   flex:auto;
+    height:100px;
+   background:yellow;
+  }
+}
