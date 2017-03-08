@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style type="text/css">
+        span{display: inline-block;height: 50px;width: 50px;background-color: red;margin: 10px;line-height: 50px;text-align: center;}
+    </style>
+</head>
+<body>
+<input type="text" name="" id="num" />
+<input type="button" name="" value="左侧入" id="zcr">
+<input type="button" name="" value="右侧入" id="ycr">
+<input type="button" name="" value="左侧出" id="zcc">
+<input type="button" name="" value="右侧出" id="ycc">
+<div id="show">
+</div>
+
+<script type="text/javascript">
+    (function () {
+        var nums = [1,2,32,23,42,53,545] ;
+        var show = document.getElementById('show');
+        for (var i = 0; i < nums.length;i++) {
+            var span = document.createElement('span');
+            var num = nums[i];
+            span.append(num);
+            show.appendChild(span);
+        }
+        document.getElementById('zcr').addEventListener('click',zcr);
+        document.getElementById('ycr').addEventListener('click',ycr);
+        document.getElementById('zcc').addEventListener('click',zcc);
+        document.getElementById('ycc').addEventListener('click',ycc);
+    }());
+    function zcr() {
+        var num = document.getElementById('num').value;
+        if (!(num == undefined || num == null || num == "")) {
+            var show = document.getElementById('show');
+            var span = document.createElement('span');
+            span.append(num);
+            show.insertBefore(span, show.children[0]);
+        } else {
+            alert("请输入正确的数字！")
+        }
+    }
+
+    function ycr() {
+        var num = document.getElementById('num').value;
+        if (!(num == undefined || num == null || num == "")) {
+            var show = document.getElementById('show');
+            var span = document.createElement('span');
+            span.append(num);
+            show.insertBefore(span, show.children[-1]);
+        } else {
+            alert("请输入正确的数字！")
+        }
+    }
+    function zcc() {
+        var show = document.getElementById('show');
+        if (show.children.length==0){
+            alert("没有数字可以删除啦~");
+        }else {
+            var span = show.children[0];
+            show.removeChild(span);
+        }
+    }
+    function ycc(){
+        var show = document.getElementById('show');
+        if (show.children.length==0){
+            alert("没有数字可以删除啦~");
+        }else {
+            var span = show.children[show.children.length-1];
+            show.removeChild(span);
+        }
+    }
+</script>
+</body>
+</html>
