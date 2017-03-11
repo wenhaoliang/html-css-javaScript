@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #list{
+            list-style: none;
+        }
+        #list li{
+            float: left;
+            background: #666;
+            color: white;
+            padding: 10px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+<textarea name="inputarea" id="inputarea" cols="30" rows="10" placeholder="可输入多项内容，内容间请用非数字，字母的字符进行分割..."></textarea>
+<button id="leftin">左侧入</button>
+<button id="rightin">右侧入</button>
+<button id="leftout">左侧出</button>
+<button id="rightout">右侧出</button>
+<input type="text" id="search" placeholder="请输入想要搜索的内容">
+<button id="searchbtn">search</button>
+<ul id="list"></ul>
+<script>
+    (function (){
+        document.getElementById('leftin').addEventListener('click',leftin);
+        document.getElementById('rightin').addEventListener('click',rightin);
+        document.getElementById('leftout').addEventListener('click',leftout);
+        document.getElementById('rightout').addEventListener('click',rightout);
+        document.getElementById('searchbtn').addEventListener('click',searchbtn);
+    }());
+    var data = [];
+    //展示函数
+    function display() {
+        var list = document.getElementById('list');
+        var li = document.getElementsByTagName('li')
+        list.innerHTML = '';
+        for (var i = 0; i < data.length; i++) {
+            list.innerHTML += '<li>' + data[i] + '</li>';
+            li[i].title = i;
+        }
+    }
+    //判断数量是否超过60
+    function varifynums(nums) {
+        if(nums<60) {
+            return true;
+        }else{
+            alert("数据数量太多啦！");
+            return false;
+        }
+    }
+    //分割输入的字符
+    function splitNum() {
+        var input = document.getElementById('inputarea').value;
+        var arr = input.split(/[^a-zA-Z0-9\u4e00-\u9fa5]/g);
+        arr = arr.filter(function(x) {return x;});
+        return arr;
+    }
+    //查找函数
+    function searchbtn() {
+        var searchValue=document.getElementById('search').value;
+        var aLi=list.getElementsByTagName('li');
+        for(var i=0;i<aLi.length;i++){
+            var aLiValue=aLi[i].innerHTML;
+            if(aLiValue.search(searchValue)!=-1){
+                aLi[i].style.background='#6cbeec';
+            }
+        }
+    }
+    //左添加
+    function leftin() {
+        if (varifynums(data.length)) {
+            var split = splitNum();
+            Array.prototype.unshift.apply(data,split);
+            display();
+        }
+    }
+    //右添加
+    function rightin() {
+        if (varifynums(data.length)) {
+            var split = splitNum();
+            Array.prototype.push.apply(data, split);
+            display();
+        }
+    }
+    //左删除
+    function leftout() {
+        if(data.length > 0) {
+            var num = data.shift();
+            display();
+            alert("被删除的数字是：" + num);
+        }else{
+            alert("已经没有数字可以删除了");
+        }
+    }
+    //右删除
+    function rightout() {
+        if(data.length > 0) {
+            var num = data.pop();
+            display();
+            alert("被删除的数字是：" + num);
+        }else{
+            alert("已经没有数字可以删除了");
+        }
+    }
+</script>
+</body>
+</html>
