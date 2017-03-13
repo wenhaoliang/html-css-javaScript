@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IFE JavaScript Task 07</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            margin: 20px 20px 20px 20px;
+            border: 1px solid;
+            overflow: hidden;
+        }
+        section {
+            overflow: hidden;
+        }
+        section div {
+            float: left;
+            background-color: #fff;
+        }
+        section > div {
+            width: 500px;
+            z-index: 2;
+        }
+        section > div > div {
+            z-index: 3;
+        }
+
+        section > div > div > div{
+            z-index: 4;
+        }
+        section > div > div > div > div {
+            width: 50px;
+            height: 30px;
+            z-index: 5;
+        }
+        .buttonBox {
+            display: block;
+            margin: 0 50px 0 50px;
+        }
+    </style>
+</head>
+<body>
+<section id = 'section'>
+    <div>
+        <div>
+            <div>
+                <div></div>
+                <div></div>
+            </div>
+            <div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div>
+            <div>
+                <div></div>
+                <div></div>
+            </div>
+            <div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div>
+            <div>
+                <div></div>
+                <div></div>
+            </div>
+            <div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div>
+            <div>
+                <div></div>
+                <div></div>
+            </div>
+            <div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+</section>
+<span class="buttonBox">
+		<button id="preOrder">前序遍历</button>
+		<button id="inOrder">中序遍历</button>
+		<button id="postOrder">后续遍历</button>
+	</span>
+</body>
+<script>
+    var tree = document.getElementById('section');
+    var arr = [];
+    function toggle() {
+        for(var i = 0;i <= arr.length;i++) {
+            (function(i){
+                setTimeout(function(){
+                    if(i <= arr.length) {
+                        if(arr[i]) {
+                            arr[i].style.background = "#cfc";
+                        }
+                        if(arr[i-1]) {
+                            arr[i-1].style.background = '#fff';
+                        }
+                    }
+                },i*1000)
+            })(i)
+        }
+    }
+    function preOrder(tree) {
+        arr.push(tree);
+        if(tree.children[0]){
+            preOrder(tree.children[0]);
+        }
+        if(tree.children[1]) {
+            preOrder(tree.children[1]);
+        }
+    }
+    function inOrder(tree) {
+        if(tree.children[0]){
+            inOrder(tree.children[0]);
+        }
+        arr.push(tree);
+        if(tree.children[1]){
+            inOrder(tree.children[1]);
+        }
+    }
+    function postOrder(tree) {
+        if(tree.children[0]){
+            postOrder(tree.children[0]);
+        }
+        if(tree.children[1]){
+            postOrder(tree.children[1])
+        }
+        arr.push(tree);
+    }
+    document.getElementById('preOrder').onclick = function() {
+        preOrder(tree);
+        toggle();
+    };
+    document.getElementById('inOrder').onclick = function() {
+        preOrder(tree);
+        toggle();
+    };
+    document.getElementById('postOrder').onclick = function() {
+        preOrder(tree);
+        toggle();
+    };
+</script>
+</html>
