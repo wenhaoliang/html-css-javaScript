@@ -61,11 +61,11 @@
             preOrder(root.children[i]);
         }
     }
-    function inOrder () {
-        tree.push(root);
+    function inOrder (root) {
         for(var i = 0; i < root.children.length; i++) {
             inOrder(root.children[i]);
         }
+        tree.push(root);
     }
     function change(i) {
         if(i < tree.length) {
