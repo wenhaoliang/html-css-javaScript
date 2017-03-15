@@ -1,0 +1,128 @@
+<!DOCTYPE>
+<html>
+
+<head>
+    <meta charset="uff-8">
+    <title>IFE JavaScript Task 07</title>
+    <style type="text/css">
+        .tree {
+            border: 2px solid #666;
+            border-radius:5px;
+            text-align: center;
+            padding:2px;
+            float:left;
+            margin:10px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="tree" id="root">a
+    <div class='tree'>b
+        <div class='tree'>c
+            <div class='tree'>d</div>
+            <div class='tree'>e</div>
+            <div class='tree'>f</div>
+            <div class='tree'>g</div>
+        </div>
+        <div class='tree'>h
+            <div class='tree'>i
+                <div class='tree'>j</div>
+            </div>
+            <div class='tree'>k</div>
+        </div>
+    </div>
+    <div class='tree'>l
+        <div class='tree'>m
+            <div class='tree'>n
+                <div class='tree'>o</div>
+                <div class='tree'>p</div>
+                <div class='tree'>q</div>
+            </div>
+            <div class='tree'>r</div>
+        </div>
+        <div class='tree'>s
+            <div class='tree'>t</div>
+        </div>
+    </div>
+</div>
+<button id="preOrder">前序遍历</button>
+<button id="inOrder">后序遍历</button>
+<input type="text" id ="word">
+<button id="preSearch">前序查找</button>
+<button id="inSearch">前序查找</button>
+
+<script tpye="text/javascript">
+    var tree = [];
+    var root = document.getElementById('root');
+    function preOrder (root) {
+        tree.push(root);
+        for(var i = 0; i < root.children.length; i++) {
+            preOrder(root.children[i]);
+        }
+    }
+    function inOrder () {
+        tree.push(root);
+        for(var i = 0; i < root.children.length; i++) {
+            inOrder(root.children[i]);
+        }
+    }
+    function change(i) {
+        if(i < tree.length) {
+            tree[i].style.background = '#cfc';
+        }
+        setTimeout(function() {
+            tree[i].style.background = '#fff';
+            change(i+1);
+        },1000)
+    }
+    function changeColor() {
+        if(tree.length > 0) {
+            change(0);
+        }
+    }
+    function search(i, word) {
+        if(i < tree.length) {
+            tree[i].style.background = '#cfc';
+        }
+        setTimeout(function() {
+            if(tree[i].innerHTML.indexOf(word) === 0) {
+                tree[i].style.background = 'pink';
+            }else {
+                tree[i].style.background = '#fff';
+            }
+            search(i+1,word);
+        },1000)
+    }
+    function searchNode() {
+        if(tree.length > 0) {
+            var word = document.getElementById('word').value;
+            search(0,word);
+        }
+    }
+    (function(){
+        document.getElementById('preOrder').onclick = function() {
+            tree = [];
+            preOrder(root);
+            changeColor();
+        };
+        document.getElementById('inOrder').onclick = function() {
+            tree = [];
+            inOrder(root);
+            changeColor();
+        };
+        document.getElementById('preSearch').onclick = function() {
+            tree = [];
+            preOrder(root);
+            searchNode();
+        };
+        document.getElementById('inSearch').onclick = function() {
+            tree = [];
+            inOrder(root);
+            searchNode();
+        };
+    })()
+</script>
+</body>
+
+</html>
