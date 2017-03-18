@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>IFE JavaScript Task 03</title>
+    <style media="screen">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        div {
+            border: 1px solid #4f4f4f;
+            padding: 15px 10px;
+            margin: 5px;
+            display: flex;
+            box-flex: 1.0;
+            background: #fff;
+            -moz-box-flex: 1.0;
+            -webkit-box-flex: 1.0;
+            flex-grow: 1;
+            background: white;
+        }
+        input {
+            width: 188px;
+            height: 30px;
+            margin: 8px 0;
+            font-size: 22px;
+            padding: 4px 8px;
+            border-radius: 5px;
+            outline: none;
+            border: 1px solid #828282;
+        }
+        .focus {
+            border-color: pink;
+            box-shadow: 0 0 3px 3px gold;
+        }
+        #root {
+            width: 700px;
+            height: 300px;
+            margin: 20px auto;
+            display: flex;
+        }
+        .btn {
+            margin: 40px auto;
+            width: 250px;
+            text-align: center;
+        }
+        .btn button {
+            font-size: 14px;
+            height: 30px;
+            width: 90px;
+            border-radius: 5px;
+            outline: none;
+            margin: 0 10px;
+            cursor: pointer;
+            background: #fff;
+            border: 1px solid #8e8e8e;
+        }
+        button:hover {
+            background: #3275f6;
+            border-color: #3275f6;
+            color: #fff;
+        }
+        .now {
+            background: pink;
+            transform: scale(1.05);
+        }
+        .find {
+            background: #ff0000 !important;
+        }
+    </style>
+</head>
+<body>
+<div id="root"><span>15</span>
+    <div><span>13</span>
+        <div><span>9</span>
+            <div><span>1</span></div>
+        </div>
+        <div><span>10</span>
+        </div>
+    </div>
+    <div><span>14</span>
+        <div><span>12</span>
+            <div><span>11</span>
+                <div><span>6</span></div>
+            </div>
+            <div><span>7</span></div>
+        </div>
+    </div>
+</div>
+<footer class="btn">
+    <input type="text">
+    <button type="button">插入</button>
+    <button type="button">删除</button>
+</footer>
+<script type="text/javascript">
+    function nodeChoice(tree, node) {
+        for(var i = 0;i < tree.length;i++) {
+            tree[i].removeAttribute('class');
+        }
+        node.className = 'now';
+        window.event.cancelBubble = true;
+        return node;
+    }
+    function insertNode(elem, value) {
+        if(!value) {
+            alert('请输入要插入的数字');
+            return false;
+        }else if (!elem) {
+            alert('请选择要插入的节点');
+        }
+        var newNode = document.createElement('div');
+        var newSpan = document.createElement('span');
+        newSpan.innerHTML = value;
+        newNode.appendChild(newSpan);
+        elem.appendChild(newNode);
+        return elem;
+    }
+    function removeNode(elem) {
+        if(!elem) {
+            alert('请选择要删除的节点');
+            return false;
+        }else if(elem.getAttribute('id') === 'root' ) {
+            alert('根节点不可删除的哦');
+            return false;
+        }
+        var parentNode = elem.parentNode;
+        parentNode.removeChild(elem);
+
+    }
+    window.onload = function(){
+        var odiv = document.getElementsByTagName('div');
+        var obtn = document.getElementsByTagName('button');
+        var oinput = document.getElementsByTagName('input')[0];
+        console.log(oinput);
+        for(var i = 0; i < odiv.length;i++) {
+            odiv[i].addEventListener('click',function(){
+                elem = nodeChoice(odiv, this);
+            })
+        }
+        obtn[0].addEventListener('click',function(){
+            flag = insertNode(elem,oinput.value);
+            flag.addEventListener('click',function(){
+                elem = nodeChoice(odiv, this);
+            })
+        });
+        obtn[1].addEventListener('click', function(){
+            removeNode(elem);
+        })
+    }
+</script>
+</body>
+</html>
